@@ -2,10 +2,5 @@
 ===
 
 
-Thanks to 胡志远
-
-LICENSE
----
-
-MIT
+origin by 胡志远
 
