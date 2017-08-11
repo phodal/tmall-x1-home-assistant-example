@@ -1,0 +1,75 @@
+{
+  "name" : "HAtest",
+  "invocationName" : "智能家居",
+  "createTime" : 1502277802000,
+  "image" : "https://g.alicdn.com/forest/ai-platform-web/4.0.83/img/default_domain.png",
+  "shortDesc" : "",
+  "longDesc" : "",
+  "oldSamples" : [ ],
+  "newSamples" : [ ],
+  "category" : "智能家居",
+  "accountLinkUrl" : "",
+  "serviceProviders" : [ ],
+  "privacyUrl" : "",
+  "termsUrl" : "",
+  "services" : [ {
+    "name" : "switch_off",
+    "description" : "关闭开关",
+    "method" : "POST",
+    "url" : "http://yourhomeassistantsite/api/services/switch/turn_off?api_password=yourpassword",
+    "inputParams" : [ {
+      "name" : "entity_id",
+      "description" : "",
+      "required" : true,
+      "sample" : "switch.aircondition_sw"
+    } ],
+    "response" : "[\n  {\n    \"attributes\": {\n      \"No motion since\": 0,\n      \"battery_level\": 53,\n      \"device_class\": \"motion\",\n      \"friendly_name\": \"Hall motion2\"\n    },\n    \"entity_id\": \"binary_sensor.motion_sensor_158d00012353c3\",\n    \"last_changed\": \"2017-08-10T17:53:42.395085+00:00\",\n    \"last_updated\": \"2017-08-10T17:53:42.395085+00:00\",\n    \"state\": \"off\"\n  },\n  {\n    \"attributes\": {\n      \"assumed_state\": false,\n      \"entity_id\": [\n        \"binary_sensor.motion_sensor_158d000171b983\",\n        \"binary_sensor.motion_sensor_158d00012353c3\",\n        \"binary_sensor.motion_sensor_158d0001a2b1df\"\n      ],\n      \"friendly_name\": \"Hall\",\n      \"order\": 1\n    },\n    \"entity_id\": \"group.hall\",\n    \"last_changed\": \"2017-08-10T17:53:42.413496+00:00\",\n    \"last_updated\": \"2017-08-10T17:53:42.413496+00:00\",\n    \"state\": \"off\"\n  },\n  {\n    \"attributes\": {\n      \"assumed_state\": true,\n      \"auto\": true,\n      \"entity_id\": [\n        \"switch.pcserver\",\n        \"switch.aircondition_sw\"\n      ],\n      \"friendly_name\": \"all switches\",\n      \"hidden\": true,\n      \"order\": 8\n    },\n    \"entity_id\": \"group.all_switches\",\n    \"last_changed\": \"2017-08-10T17:53:42.570712+00:00\",\n    \"last_updated\": \"2017-08-10T17:53:42.570712+00:00\",\n    \"state\": \"off\"\n  },\n  {\n    \"attributes\": {\n      \"assumed_state\": true,\n      \"friendly_name\": \"空调\"\n    },\n    \"entity_id\": \"switch.aircondition_sw\",\n    \"last_changed\": \"2017-08-10T17:53:42.564282+00:00\",\n    \"last_updated\": \"2017-08-10T17:53:42.564282+00:00\",\n    \"state\": \"off\"\n  }\n]",
+    "extendInfo" : ""
+  }, {
+    "name" : "switch_on",
+    "description" : "打开开关",
+    "method" : "POST",
+    "url" : "http://yourhomeassistantsite/api/services/switch/turn_on?api_password=yourpassword",
+    "inputParams" : [ {
+      "name" : "entity_id",
+      "description" : "设备ID",
+      "required" : true,
+      "sample" : "switch.aircondition_sw"
+    } ],
+    "response" : "[\n  {\n    \"attributes\": {\n      \"assumed_state\": true,\n      \"auto\": true,\n      \"entity_id\": [\n        \"switch.pcserver\",\n        \"switch.aircondition_sw\"\n      ],\n      \"friendly_name\": \"all switches\",\n      \"hidden\": true,\n      \"order\": 8\n    },\n    \"entity_id\": \"group.all_switches\",\n    \"last_changed\": \"2017-08-10T17:49:40.546452+00:00\",\n    \"last_updated\": \"2017-08-10T17:49:40.546452+00:00\",\n    \"state\": \"on\"\n  },\n  {\n    \"attributes\": {\n      \"assumed_state\": true,\n      \"friendly_name\": \"空调\"\n    },\n    \"entity_id\": \"switch.aircondition_sw\",\n    \"last_changed\": \"2017-08-10T17:49:40.527380+00:00\",\n    \"last_updated\": \"2017-08-10T17:49:40.527380+00:00\",\n    \"state\": \"on\"\n  }\n]",
+    "extendInfo" : ""
+  }, {
+    "name" : "light_off",
+    "description" : "关闭灯",
+    "method" : "POST",
+    "url" : "http://yourhomeassistantsite/api/services/light/turn_off?api_password=yourpassword",
+    "inputParams" : [ {
+      "name" : "entity_id",
+      "description" : "设备ID",
+      "required" : true,
+      "sample" : "light.desk_lamp"
+    } ],
+    "response" : "{}",
+    "extendInfo" : ""
+  }, {
+    "name" : "light_on",
+    "description" : "打开灯",
+    "method" : "POST",
+    "url" : "http://yourhomeassistantsite/api/services/light/turn_on?api_password=yourpassword",
+    "inputParams" : [ {
+      "name" : "entity_id",
+      "description" : "设备ID",
+      "required" : true,
+      "sample" : "light.desk_lamp"
+    } ],
+    "response" : "[]",
+    "extendInfo" : ""
+  } ],
+  "smalltalks" : [ ],
+  "nluSolution" : "SFIC",
+  "instructions" : null,
+  "settingLinkUrl" : null,
+  "copyrightUrl" : "",
+  "qualificationUrl" : "",
+  "hasConfirmCompliance" : null
+}

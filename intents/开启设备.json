@@ -1,0 +1,42 @@
+{
+  "name" : "开启设备",
+  "description" : "",
+  "type" : "DEFAULT",
+  "useWebhook" : false,
+  "precedingIntents" : [ ],
+  "userSays" : [ {
+    "text" : "打开@{device_name}",
+    "labelledText" : "打开@{device_name}",
+    "type" : "SAMPLE",
+    "typeUI" : "TEMPLATE"
+  } ],
+  "followUps" : [ ],
+  "parameters" : [ {
+    "required" : true,
+    "name" : "device_name",
+    "entity" : "device_name",
+    "prompts" : [ ],
+    "replyTemplates" : [ ],
+    "valueReference" : "device_name",
+    "defaultValue" : ""
+  } ],
+  "responses" : [ {
+    "name" : "reply_ok",
+    "speeches" : [ "打开@{device_name} 完成" ],
+    "parameters" : [ ]
+  }, {
+    "name" : "reply_failed",
+    "speeches" : [ "打开@{device_name} 失败" ],
+    "parameters" : [ ]
+  } ],
+  "executeLogic" : {
+    "type" : "XML_CONFIG",
+    "content" : "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<intent xmlns=\"http://www.da.alibaba.com/coin/ide/task/template\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.da.alibaba.com/coin/ide/task/template ../template/intent_config.xsd\">\n  <params>\n    <param name=\"device_name\" type=\"String\">Request.getSlotValue(\"device_name\")</param>\n  </params>\n  <process-branches>\n    <branch name=\"dowork\">\n      <params />\n      <process-branches>\n        <branch name=\"desk_lamp\">\n          <params>\n            <param name=\"var_desk_lamp\" type=\"Map(String,String)\">Map.of(\"entity_id\",\"light.desk_lamp\")</param>\n            <param name=\"Result\" type=\"String\">Service.request(\"light_on\",var_desk_lamp)</param>\n          </params>\n          <process-switch>\n            <default reply-node=\"reply_ok\" />\n          </process-switch>\n        </branch>\n        <branch name=\"air_condition\">\n          <params>\n            <param name=\"var_air_condition\" type=\"Map(String,String)\">Map.of(\"entity_id\",\"switch.aircondition_sw\")</param>\n            <param name=\"Result\" type=\"String\">Service.request(\"switch_on\",var_air_condition)</param>\n          </params>\n          <process-switch>\n            <default reply-node=\"reply_ok\" />\n          </process-switch>\n        </branch>\n      </process-branches>\n      <process-switch>\n        <case branch-name=\"desk_lamp\">device_name==\"台灯\"</case>\n        <case branch-name=\"air_condition\">device_name==\"空调\"</case>\n        <default reply-node=\"reply_failed\" />\n      </process-switch>\n    </branch>\n  </process-branches>\n  <process-switch>\n    <case branch-name=\"dowork\">device_name!=null</case>\n    <default reply-node=\"reply_failed\" />\n  </process-switch>\n</intent>\n\n",
+    "jsonContent" : null,
+    "args" : [ "$device_name=空调" ]
+  },
+  "webhook" : {
+    "url" : "",
+    "headers" : [ ]
+  }
+}

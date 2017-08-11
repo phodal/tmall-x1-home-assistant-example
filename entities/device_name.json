@@ -1,0 +1,15 @@
+{
+  "name" : "device_name",
+  "desc" : "设备名",
+  "scope" : "DOMAIN",
+  "resolution" : "DICTIONARY",
+  "entryCount" : 2,
+  "entries" : [ {
+    "normValue" : "空调",
+    "synonyms" : [ ]
+  }, {
+    "normValue" : "台灯",
+    "synonyms" : [ ]
+  } ],
+  "enable" : true
+}
